@@ -1,0 +1,11 @@
+$DM_sans: ("Bold", 700, "normal"),("Medium", 500, "normal"),("MediumItalic", 500, "italic"),("Regular", 400, "normal"),("Light", 300, "normal"),("LightItalic", 300, "italic");
+
+@each $name, $weight, $style in $DM_sans {
+    @font-face {
+        src: url(../fonts/DM_Sans/DMSans-#{$name}.woff2) format('woff2');
+        font-family: "DM_sans";
+        font-weight: $weight;
+        font-style: $style;
+        font-style: swap;
+    }
+}
