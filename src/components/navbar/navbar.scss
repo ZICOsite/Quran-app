@@ -1,0 +1,47 @@
+.nav {
+    padding: 20px 0;
+    background: var(--secondary-color);
+
+    &__container {
+        width: min(1200px, 100%);
+        margin: 0 auto;
+        padding: 0 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+    }
+
+    &__logo {
+        color: #fff;
+        font-size: 32px;
+    }
+
+    &__menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-grow: 1;
+
+        &-list {
+            display: flex;
+            gap: 30px;
+        }
+
+        &-link {
+            color: #fff;
+
+            &.router-link-exact-active {
+                color: var(--primary-color);
+            }
+        }
+
+        .el-input__wrapper.is-focus {
+            box-shadow: 0 0 0 1.5px var(--primary-color);
+        }
+
+        &-input {
+            font-size: 16px !important;
+        }
+    }
+}
