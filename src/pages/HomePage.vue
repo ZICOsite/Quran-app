@@ -1,6 +1,10 @@
 <script setup>
+import IntroView from '@/views/introView/IntroView.vue';
+
 </script>
 
 <template>
-    <h1>Home</h1>
+    <main>
+        <IntroView/>
+    </main>
 </template>
