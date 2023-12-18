@@ -1,12 +1,16 @@
 @import "fonts.scss";
 @import "root.scss";
 @import "common.scss";
+
 // layouts
 @import "@/layouts/footer/footer.scss";
 // layouts
+
 // components
 @import "@/components/navbar/navbar.scss";
+@import "@/components/UI/select/select.scss";
 // components
+
 // views
 @import "@/views/introView/introView.scss";
 // views

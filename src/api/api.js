@@ -5,8 +5,12 @@ const apiQuran = {
         const url = "surah";
         return axiosClient.get(url)
     },
-    getAyah(surahAndAyah) {
-        const url = `ayah/${surahAndAyah}/ar.alafasy`
+    getAyah(surahAndAyah, edition) {
+        const url = `ayah/${surahAndAyah}/editions/${edition}`
+        return axiosClient.get(url)
+    },
+    getTranslation() {
+        const url = `edition/type/translation`
         return axiosClient.get(url)
     }
 }

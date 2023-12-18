@@ -12,7 +12,7 @@ $DM_sans: ("Bold", 700, "normal"),("Medium", 500, "normal"),("MediumItalic", 500
 
 $Arabic: ("Bold", 700), ("Medium", 500),("Regular", 400),("SemiBold", 600);
 
-@each $name, $weight, $style in $DM_sans {
+@each $name, $weight, $style in $Arabic {
     @font-face {
         src: url(../fonts/Noto_Naskh_Arabic/NotoNaskhArabic-#{$name}.woff2) format('woff2');
         font-family: "Noto Naskh Arabic";

@@ -1,0 +1,24 @@
+.select-translation {
+    font-size: 16px;
+
+    .el-select__input, .el-input__inner {
+        font-size: 16px;
+        color: var(--secondary-color);
+    }
+}
+
+body {
+    .el-popper {
+        width: min(744px, 100%) !important;
+    }
+
+    .el-select-dropdown.is-multiple {
+        min-width: unset !important;
+    }
+
+    .el-select-dropdown__item {
+        white-space: unset !important;
+        overflow: unset !important;
+        height: auto;
+    }
+}
