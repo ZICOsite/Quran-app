@@ -1,6 +1,10 @@
 <script setup>
+import AyahView from '@/views/ayahView/AyahView.vue';
+
 </script>
 
 <template>
-    <h1>Ayahs</h1>
+    <main>
+        <AyahView/>
+    </main>
 </template>

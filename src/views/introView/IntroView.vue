@@ -3,9 +3,9 @@ import { useAyahStore } from "@/stores/getAyahStore";
 
 import randomAyahs from "@/assets/js/randomAyahs";
 import Select from "@/components/UI/select/Select.vue";
+import Ayah from "@/components/card/ayah/Ayah.vue";
 
 const ayahStore = useAyahStore();
-
 </script>
 
 <template>
@@ -23,14 +23,18 @@ const ayahStore = useAyahStore();
         earth and what is in them and what is between them and He is the Lord of
         Majesty and Bounty and He has power over everything.
       </p>
-      <p class="intro__ayah" :class="{'text-arabic': item.edition.language == 'ar'}" v-for="(item, idx) in ayahStore.ayahs" :key="item.edition.identifier">
-        «{{ item?.text }}»
-        <RouterLink to="/ayahs" class="intro__ayah-number"
-          >({{ randomAyahs }})</RouterLink
-        >
-      </p>
+      <Ayah
+        class="intro__ayah"
+        v-for="item in ayahStore.ayahs"
+        :key="item.edition.identifier"
+        :info="item"
+        :numberAyah="randomAyahs"
+      />
       <Suspense>
-        <Select/>
+        <Select :surahAndAyah="randomAyahs" :transliteration="false" />
+        <template #fallback>
+          <h1>Loading</h1>
+        </template>
       </Suspense>
     </div>
   </section>

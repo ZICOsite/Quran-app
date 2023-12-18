@@ -6,7 +6,7 @@ export const useAyahStore = defineStore('ayah', {
     ayahs: null,
   }),
   actions: {
-    async getAyah(surahAndAyah, edition) {
+    async getAyah(surahAndAyah, edition = 'ar.alafasy') {
       try {
         const res = await apiQuran.getAyah(surahAndAyah, edition)
         this.ayahs = res.data

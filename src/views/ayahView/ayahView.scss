@@ -1,0 +1,53 @@
+.ayah {
+    padding-top: 60px;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        &-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 16px;
+        }
+
+        &-name {
+            font-size: 20px;
+            font-weight: 500;
+
+            span {
+                font-size: 16px;
+            }
+        }
+
+        &-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 16px;
+
+        &-input {
+            width: min(300px, 100%) !important;
+            font-size: 18px !important;
+        }
+
+        &-btn {
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            text-transform: uppercase;
+            border-radius: var(--radius-4);
+            padding: 6px 10px;
+            cursor: pointer;
+        }
+    }
+}

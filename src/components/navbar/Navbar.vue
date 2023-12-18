@@ -15,10 +15,6 @@ const pages = [
     name: "Surahs",
   },
   {
-    path: "/ayahs",
-    name: "Ayahs",
-  },
-  {
     path: "/juzs",
     name: "Juzs",
   },

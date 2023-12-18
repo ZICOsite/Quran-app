@@ -2,7 +2,10 @@
 import { useTranslationStore } from "@/stores/getTranslationStore";
 import { useAyahStore } from "@/stores/getAyahStore";
 
-import randomAyahs from "@/assets/js/randomAyahs";
+const props = defineProps({
+  surahAndAyah: String,
+  transliteration: Boolean
+})
 
 const ayahStore = useAyahStore()
 const translationStore = useTranslationStore();
@@ -21,13 +24,16 @@ onMounted(() => {
 });
 
 watch(query, () => {
-  ayahStore.getAyah(randomAyahs, `ar.alafasy, ${query.value.join()}`)
+  if (props.transliteration) {
+    ayahStore.getAyah(props.surahAndAyah, `ar.alafasy, en.transliteration, ${query.value.join()}`)
+  } else {
+    ayahStore.getAyah(props.surahAndAyah, `ar.alafasy, ${query.value.join()}`)
+  }
 });
 
 </script>
 
 <template>
-  <h1>{{ ayahStore.ayah?.text }}</h1>
   <el-select
     v-model="query"
     filterable
