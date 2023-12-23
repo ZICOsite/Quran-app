@@ -1,0 +1,30 @@
+.surah-item {
+    background: #fff;
+    padding: 12px;
+    border-radius: var(--radius-4);
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    transition: 0.4s;
+
+    &:hover {
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2), 0 4px 6px rgba(0,0,0,0.2);
+    }
+
+    &__number {
+        display: grid;
+        place-items: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        color: #fff;
+        background: var(--primary-color);
+        font-size: 24px;
+    }
+
+    &__arabic-name {
+        margin-left: auto;
+        font-size: 24px;
+    }
+}

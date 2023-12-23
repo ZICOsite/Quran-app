@@ -10,7 +10,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
             margin-top: 16px;
+
+            @media (max-width: 736px) {
+                text-align: center;
+                justify-content: center;
+            }
         }
 
         &-name {
@@ -38,6 +45,7 @@
         &-input {
             width: min(300px, 100%) !important;
             font-size: 18px !important;
+            flex-grow: 1;
         }
 
         &-btn {
@@ -46,8 +54,10 @@
             border: none;
             text-transform: uppercase;
             border-radius: var(--radius-4);
-            padding: 6px 10px;
+            padding: 10px;
             cursor: pointer;
+            font-size: 16px;
+            flex-grow: 1;
         }
     }
 }

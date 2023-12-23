@@ -21,7 +21,7 @@ const queryAyah = (surahAndAyah) => {
 <template>
   <section class="ayah">
     <div class="container">
-      <Bismillah class="ayah__title" />
+      <Bismillah />
       <div class="ayah__content">
         <div class="ayah__content-top">
           <h2 class="ayah__content-title">
