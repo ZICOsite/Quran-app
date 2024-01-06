@@ -1,5 +1,4 @@
 <script setup>
-import axios from "axios";
 import { useRoute } from "vue-router";
 import { useSurahsStore } from "@/stores/getSurahsStore";
 import Bismillah from "@/components/Bismillah/Bismillah.vue";
@@ -9,21 +8,8 @@ const route = useRoute();
 const surahsStore = useSurahsStore();
 surahsStore.getSurahSingle(route.params.id, "ar.alafasy, en.transliteration");
 
-const fullSurahAudio = ref(null);
+const fullSurahAudio = ref(`https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/${route.params.id}.mp3`);
 
-const getFullSurahAudio = async (number) => {
-  try {
-    const res = await axios.get(
-      `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/${number}.mp3`
-    );
-    console.log(res);
-    fullSurahAudio.value = res;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-getFullSurahAudio(route.params.id);
 </script>
 
 <template>
