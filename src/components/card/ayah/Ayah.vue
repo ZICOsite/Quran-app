@@ -15,6 +15,7 @@ const props = defineProps({
       { 'text-arabic': info?.edition.language == 'ar' },
       { 'transliteration': info?.edition.type == 'transliteration' },
     ]"
+    :title="info?.edition.englishName"
   >
     «{{ info?.text }}»
     <RouterLink

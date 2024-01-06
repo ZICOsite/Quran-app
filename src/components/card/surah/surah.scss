@@ -7,6 +7,7 @@
     align-items: center;
     flex-wrap: wrap;
     transition: 0.4s;
+    color: #000;
 
     &:hover {
         box-shadow: 0 2px 5px rgba(0,0,0,0.2), 0 4px 6px rgba(0,0,0,0.2);
@@ -23,8 +24,59 @@
         font-size: 24px;
     }
 
+    &__translate {
+        font-weight: 400;
+    }
+
     &__arabic-name {
         margin-left: auto;
         font-size: 24px;
+    }
+}
+
+.surah-desc {
+    background: #fff;
+    border-radius: var(--radius-4);
+    overflow: hidden;
+
+    &__top {
+        background: var(--primary-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+        padding: 10px;
+        border-radius: var(--radius-4);
+    }
+
+    &__number {
+        color: #fff;
+        font-size: 20px;
+    }
+
+    &__play {
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        display: flex;
+        margin: 0 0 0 auto;
+    }
+
+    &__audio {
+        height: 35px;
+    }
+
+    &__name {
+        color: #fff;
+    }
+
+    &__text {
+        text-align: right;
+        padding: 20px;
+        font-size: 20px;
+        
+        &.text-arabic {
+            font-size: 30px;
+        }
     }
 }

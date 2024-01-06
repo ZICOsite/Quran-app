@@ -13,7 +13,7 @@ export default defineConfig({
     AutoImport({
       imports: [
         {
-          vue: ['ref', 'computed', 'onMounted', 'watch', 'useRouter']
+          vue: ['ref', 'computed', 'onMounted', 'watch']
         }
       ],
       resolvers: [ElementPlusResolver()],

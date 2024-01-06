@@ -3,6 +3,7 @@
 @import "common.scss";
 
 // layouts
+@import "@/layouts/header/header.scss";
 @import "@/layouts/footer/footer.scss";
 // layouts
 
@@ -16,5 +17,6 @@
 // views
 @import "@/views/introView/introView.scss";
 @import "@/views/ayahView/ayahView.scss";
+@import "@/views/surahsView/surahsView.scss";
 @import "@/views/surahView/surahView.scss";
 // views

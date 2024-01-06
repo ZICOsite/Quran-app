@@ -5,6 +5,10 @@ const apiQuran = {
         const url = "surah";
         return axiosClient.get(url)
     },
+    getSurahSingle(id, edition, offset, limit) {
+        const url = `surah/${id}/editions/${edition}?offset=${offset}&limit=${limit}`
+        return axiosClient.get(url)
+    },
     getAyah(surahAndAyah, edition) {
         const url = `ayah/${surahAndAyah}/editions/${edition}`
         return axiosClient.get(url)

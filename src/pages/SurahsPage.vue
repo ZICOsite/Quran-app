@@ -1,10 +1,10 @@
 <script setup>
-import SurahView from '@/views/surahView/SurahView.vue';
+import SurahsView from '@/views/surahsView/SurahsView.vue';
 
 </script>
 
 <template>
     <main>
-        <SurahView/>
+        <SurahsView/>
     </main>
 </template>

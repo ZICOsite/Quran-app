@@ -31,7 +31,7 @@ const ayahStore = useAyahStore();
         :numberAyah="randomAyahs"
       />
       <Suspense>
-        <Select :surahAndAyah="randomAyahs" :transliteration="false" />
+        <Select :surahAndAyah="randomAyahs" :transliteration="false"  />
         <template #fallback>
           <h1>Loading</h1>
         </template>

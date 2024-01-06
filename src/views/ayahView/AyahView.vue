@@ -56,10 +56,10 @@ const queryAyah = (surahAndAyah) => {
             v-model="dataAyahValue"
             placeholder="Ayah search (1:1)"
             clearable
+            required
           />
           <button class="ayah__form-btn">find</button>
           <audio
-            class="audio"
             :src="ayahStore.ayahs?.[0].audio"
             controls
           ></audio>
