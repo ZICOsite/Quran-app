@@ -18,6 +18,11 @@
             display: block;
             margin: 20px auto 0;
         }
+
+        &-pagination {
+            justify-content: center;
+            margin-top: 30px;
+        }
     }
 
     .select-translation {

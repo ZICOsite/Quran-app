@@ -5,11 +5,12 @@ export const useSurahsStore = defineStore('surahs', {
   state: () => ({
     surahs: null,
     surah: null,
+    totalAyah: 0
   }),
   getters: {
     getFirstSurahData(state) {
       return state.surah?.[0]
-    }
+    },
   },
   actions: {
     async getSurahs() {
@@ -24,6 +25,7 @@ export const useSurahsStore = defineStore('surahs', {
       try {
         const res = await apiQuran.getSurahSingle(id, edition, offset, limit)
         this.surah = res.data
+        this.totalAyah = this.getFirstSurahData.numberOfAyahs
       } catch (error) {
         console.error(error.message);
       }

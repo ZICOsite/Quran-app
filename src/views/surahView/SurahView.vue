@@ -1,15 +1,37 @@
 <script setup>
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { useSurahsStore } from "@/stores/getSurahsStore";
 import Bismillah from "@/components/Bismillah/Bismillah.vue";
 import SurahDesc from "@/components/card/surah/SurahDesc.vue";
 
+const router = useRouter();
 const route = useRoute();
 const surahsStore = useSurahsStore();
-surahsStore.getSurahSingle(route.params.id, "ar.alafasy, en.transliteration");
 
-const fullSurahAudio = ref(`https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/${route.params.id}.mp3`);
+const fullSurahAudio = ref(
+  `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/${route.params.id}.mp3`
+);
 
+const currentPage = ref(+route.query.page || 1);
+
+surahsStore.getSurahSingle(
+  route.params.id,
+  "ar.alafasy, en.transliteration",
+  +route.query.page * 20 - 20
+);
+
+const handleCurrentChange = (page) => {
+  if (page === 1) {
+    router.push(route.path);
+  } else {
+    router.push(`${route.path}?page=${page}`);
+  }
+  surahsStore.getSurahSingle(
+    route.params.id,
+    "ar.alafasy, en.transliteration",
+    page * 20 - 20
+  );
+};
 </script>
 
 <template>
@@ -38,11 +60,26 @@ const fullSurahAudio = ref(`https://cdn.islamic.network/quran/audio-surah/128/ar
           />
         </div>
         <Suspense>
-          <Select :surahAndAyah="route.params.id" :transliteration="true" :surah="true" class="surah__select" />
+          <Select
+            :surahAndAyah="route.params.id"
+            :transliteration="true"
+            :surah="true"
+            class="surah__select"
+          />
           <template #fallback>
             <h1>Loading</h1>
           </template>
         </Suspense>
+        <el-pagination
+          v-model:current-page="currentPage"
+          background
+          layout="prev, pager, next, total"
+          :pager-count="5"
+          :page-size="20"
+          :total="surahsStore.totalAyah"
+          @current-change="handleCurrentChange"
+          class="surah__content-pagination"
+        />
       </div>
     </div>
   </section>

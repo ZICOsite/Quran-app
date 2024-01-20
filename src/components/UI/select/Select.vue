@@ -34,9 +34,9 @@ onMounted(() => {
 watch(query, () => {
   if (props.surah) {
     if (props.transliteration) {
-      surahsStore.getSurahSingle(route.params.id, `ar.alafasy, en.transliteration, ${query.value.join()}`);
+      surahsStore.getSurahSingle(route.params.id, `ar.alafasy, en.transliteration, ${query.value.join()}`, +route.query.page * 20 - 20);
     } else {
-      surahsStore.getSurahSingle(route.params.id, `ar.alafasy, ${query.value.join()}`);
+      surahsStore.getSurahSingle(route.params.id, `ar.alafasy, ${query.value.join()}`, +route.query.page * 20 - 20);
     }
   } else {
     if (props.transliteration) {

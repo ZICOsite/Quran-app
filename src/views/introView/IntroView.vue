@@ -4,6 +4,7 @@ import { useAyahStore } from "@/stores/getAyahStore";
 import randomAyahs from "@/assets/js/randomAyahs";
 import Select from "@/components/UI/select/Select.vue";
 import Ayah from "@/components/card/ayah/Ayah.vue";
+import Bismillah from "@/components/Bismillah/Bismillah.vue";
 
 const ayahStore = useAyahStore();
 </script>
@@ -12,11 +13,9 @@ const ayahStore = useAyahStore();
   <section class="intro">
     <div class="container">
       <h1 class="title">Holy Qur'an</h1>
+      <Bismillah/>
       <h2 class="intro__title text-arabic">
-        بِسْمِ ٱللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ ٱلْحَمْدُ لِلّٰهِ ٱلَّذِي خَلَقَ
-        ٱلْإِنْسَانَ وَٱلْجَانَّ وَ ٱلسَّمٰوَاتِ وَ ٱلْأَرْضَ وَ مَا فِيهُمَا وَ
-        مَا بَيْنَهُمَا وَ هُوَ ذُوْ ٱلْجَلَالِ وَ ٱلْإِكْرَامِ وَ هُوَ عَلَى
-        كُلِّ شَيْءٍ قَدِيرٌ
+        ٱلْحَمْدُ لِلّٰهِ ٱلَّذِي خَلَقَ ٱلْإِنْسَانَ وَٱلْجَانَّ وَ ٱلسَّمٰوَاتِ وَ ٱلْأَرْضَ وَ مَا فِيهُمَا وَ مَا بَيْنَهُمَا وَ هُوَ ذُوْ ٱلْجَلَالِ وَ ٱلْإِكْرَامِ وَ هُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ
       </h2>
       <p class="intro__subtitle">
         All praise is for Allah Who created man and jinn and the heavens and the
