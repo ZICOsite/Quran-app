@@ -1,6 +1,5 @@
 .surahs {
     
-
     &__content {
         margin-top: 30px;
 
@@ -11,13 +10,13 @@
     }
 
     &__up {
-        width: 48px !important;
-        height: 48px !important;
+        width: 48px;
+        height: 48px;
         border-radius: 50%;
         background: var(--secondary-color);
         display: grid;
         place-items: center;
-        position: sticky !important;
+        position: sticky;
         left: 85%;
         bottom: 5%;
         transition: 0.2s;

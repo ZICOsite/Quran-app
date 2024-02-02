@@ -30,5 +30,6 @@ export const useSurahsStore = defineStore('surahs', {
         console.error(error.message);
       }
     },
-  }
+  },
+  persist: true
 })

@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "@/pages/HomePage.vue";
+import { useSurahsStore } from "@/stores/getSurahsStore";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,6 +19,20 @@ const router = createRouter({
       path: "/surahs/:id",
       name: "surah",
       component: () => import("@/pages/SurahPage.vue"),
+      beforeEnter(to, from) {
+        const surahsStore = useSurahsStore();
+        const exists = surahsStore.surahs?.find(
+          (surah) => surah.number == to.params.id
+        );
+        if (!exists) {
+          return {
+            name: "NotFound",
+            params: { pathMatch: to.path.split("/").slice(1) },
+            query: to.query,
+            hash: to.hash,
+          };
+        }
+      },
     },
     {
       path: "/ayahs/:id",
@@ -33,6 +48,11 @@ const router = createRouter({
       path: "/sajdas",
       name: "sajdas",
       component: () => import("@/pages/SajdasPage.vue"),
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      name: "NotFound",
+      component: () => import("@/pages/NotFoundPage.vue"),
     },
   ],
   scrollBehavior(to, from, savedPosition) {
