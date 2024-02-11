@@ -1,82 +1,94 @@
 .surah-item {
-    background: #fff;
-    padding: 12px;
-    border-radius: var(--radius-4);
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    flex-wrap: wrap;
-    transition: 0.4s;
-    color: #000;
+  background: #fff;
+  padding: 12px;
+  border-radius: var(--radius-4);
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+  transition: 0.4s;
+  color: #000;
 
-    &:hover {
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2), 0 4px 6px rgba(0,0,0,0.2);
-    }
+  &:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
 
-    &__number {
-        display: grid;
-        place-items: center;
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        color: #fff;
-        background: var(--primary-color);
-        font-size: 24px;
-    }
+  &__number {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    color: #fff;
+    background: var(--primary-color);
+    font-size: 24px;
+  }
 
-    &__translate {
-        font-weight: 400;
-    }
+  &__translate {
+    font-weight: 400;
+  }
 
-    &__arabic-name {
-        margin-left: auto;
-        font-size: 24px;
-    }
+  &__arabic-name {
+    margin-left: auto;
+    font-size: 24px;
+  }
 }
 
 .surah-desc {
-    background: #fff;
+  background: #fff;
+  border-radius: var(--radius-4);
+  overflow: hidden;
+
+  &__top {
+    background: var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    padding: 10px;
     border-radius: var(--radius-4);
-    overflow: hidden;
+  }
 
-    &__top {
-        background: var(--primary-color);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 30px;
-        padding: 10px;
-        border-radius: var(--radius-4);
-    }
+  &__surah-link {
+    color: #fff;
+    text-decoration: underline;
+    display: flex;
+    gap: 8px;
+    align-items: center;
 
-    &__number {
-        color: #fff;
-        font-size: 20px;
+    span {
+      font-weight: 400;
     }
+  }
 
-    &__play {
-        border: none;
-        background: transparent;
-        cursor: pointer;
-        display: flex;
-        margin: 0 0 0 auto;
-    }
+  &__number {
+    color: #fff;
+    font-size: 20px;
+  }
 
-    &__audio {
-        height: 35px;
-    }
+  &__play {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    margin: 0 0 0 auto;
+  }
 
-    &__name {
-        color: #fff;
-    }
+  &__audio {
+    height: 35px;
+  }
 
-    &__text {
-        text-align: right;
-        padding: 20px;
-        font-size: 20px;
-        
-        &.text-arabic {
-            font-size: 30px;
-        }
+  &__name {
+    color: #fff;
+  }
+
+  &__text {
+    text-align: right;
+    padding: 20px;
+    font-size: 20px;
+
+    &.text-arabic {
+      font-size: 30px;
     }
+  }
 }

@@ -45,6 +45,22 @@ const router = createRouter({
       component: () => import("@/pages/JuzsPage.vue"),
     },
     {
+      path: "/juzs/:id",
+      name: "Juz",
+      component: () => import("@/pages/JuzPage.vue"),
+      beforeEnter(to, from) {
+        const exists = to.params.id >= 1 && to.params.id <= 30
+        if (!exists) {
+          return {
+            name: "NotFound",
+            params: { pathMatch: to.path.split("/").slice(1) },
+            query: to.query,
+            hash: to.hash,
+          };
+        }
+      }
+    },
+    {
       path: "/sajdas",
       name: "sajdas",
       component: () => import("@/pages/SajdasPage.vue"),

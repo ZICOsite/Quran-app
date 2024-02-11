@@ -1,6 +1,9 @@
 <script setup>
+import SajdasView from "@/views/sajdasView/SajdasView.vue";
 </script>
 
 <template>
-    <h1>Sajdas</h1>
+  <main>
+    <SajdasView />
+  </main>
 </template>

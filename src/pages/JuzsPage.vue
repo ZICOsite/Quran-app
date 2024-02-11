@@ -1,6 +1,9 @@
 <script setup>
+import JuzsView from '@/views/juzsView/JuzsView.vue'
 </script>
 
 <template>
-    <h1>Juzs</h1>
+    <main>
+        <JuzsView/>
+    </main>
 </template>

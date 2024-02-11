@@ -1,0 +1,28 @@
+.juzs {
+    
+    &__content {
+        margin-top: 30px;
+        
+        &-cards {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        &-link {
+            width: min(200px, 100%);
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--secondary-color);
+            text-align: center;
+            background: #fff;
+            transition: 0.4s;
+            padding: 4px 0;
+            
+            &:hover {
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.2);
+            }
+        }
+    }
+}

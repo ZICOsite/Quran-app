@@ -25,12 +25,17 @@ const queryAyah = (surahAndAyah) => {
       <div class="ayah__content">
         <div class="ayah__content-top">
           <h2 class="ayah__content-title">
-            Surah {{ ayahStore.getFirstAyahData?.surah.englishName }} Ayah
-            {{ ayahStore.getFirstAyahData?.surah.numberOfAyahs }} ({{
+            Surah {{ ayahStore.getFirstAyahData?.surah.englishName }} ({{
               route.params.id
-            }})
+            }}) Ayahs
+            {{ ayahStore.getFirstAyahData?.surah.numberOfAyahs }}
           </h2>
-          <p class="ayah__content-name text-arabic"><span>{{ ayahStore.getFirstAyahData?.surah.englishNameTranslation }}</span> | {{ ayahStore.getFirstAyahData?.surah.name }}</p>
+          <p class="ayah__content-name text-arabic">
+            <span>{{
+              ayahStore.getFirstAyahData?.surah.englishNameTranslation
+            }}</span>
+            | {{ ayahStore.getFirstAyahData?.surah.name }}
+          </p>
         </div>
         <div class="ayah__content-cards">
           <Ayah
@@ -59,10 +64,7 @@ const queryAyah = (surahAndAyah) => {
             required
           />
           <button class="ayah__form-btn">find</button>
-          <audio
-            :src="ayahStore.getFirstAyahData?.audio"
-            controls
-          ></audio>
+          <audio :src="ayahStore.getFirstAyahData?.audio" controls></audio>
         </form>
       </div>
     </div>

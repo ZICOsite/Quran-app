@@ -9,16 +9,26 @@ const props = defineProps({
 });
 
 const isPlay = ref(true);
-
 </script>
 
 <template>
   <div class="surah-desc" v-for="item in ayahsList" :key="item.text">
     <div class="surah-desc__top" :title="edition?.englishName">
+      <h3 class="surah-desc__surah-name" v-if="item.surah">
+        <RouterLink :to="`/ayahs/${item.number}`" class="surah-desc__surah-link">
+          {{ item.surah?.englishName }}
+          <span>({{ item.surah?.englishNameTranslation }})</span>
+          <span>{{ item.surah?.name }}</span>
+        </RouterLink>
+      </h3>
       <span class="surah-desc__number">
-        {{ numberSurah }}:{{ item.number }}
+        {{ numberSurah || item.surah?.number }}:{{ item.number }}
       </span>
-      <button class="surah-desc__play" v-if="isPlay && item.audio" @click="isPlay = false">
+      <button
+        class="surah-desc__play"
+        v-if="isPlay && item.audio"
+        @click="isPlay = false"
+      >
         <el-icon :size="24" color="#fff"><VideoPlay /></el-icon>
       </button>
       <audio

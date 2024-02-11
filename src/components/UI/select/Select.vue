@@ -5,20 +5,20 @@ import { useRoute } from "vue-router";
 import { useSurahsStore } from "@/stores/getSurahsStore";
 
 const props = defineProps({
-  surahAndAyah: String,
+  surahAndAyah: String | Number,
   transliteration: Boolean,
   surah: {
     type: Boolean,
-    default: false
-  }
-})
+    default: false,
+  },
+});
 
-const ayahStore = useAyahStore()
+const ayahStore = useAyahStore();
 const translationStore = useTranslationStore();
 const surahsStore = useSurahsStore();
 await translationStore.getTranslation();
 
-const route = useRoute()
+const route = useRoute();
 const query = ref("");
 const options = ref([]);
 
@@ -31,22 +31,35 @@ onMounted(() => {
   }
 });
 
-watch(query, () => {
+watch(query, async () => {
   if (props.surah) {
     if (props.transliteration) {
-      surahsStore.getSurahSingle(route.params.id, `ar.alafasy, en.transliteration, ${query.value.join()}`, +route.query.page * 20 - 20);
+      await surahsStore.getSurahSingle(
+        route.params.id,
+        `ar.alafasy, en.transliteration, ${query.value.join()}`,
+        +route.query.page * 20 - 20
+      );
     } else {
-      surahsStore.getSurahSingle(route.params.id, `ar.alafasy, ${query.value.join()}`, +route.query.page * 20 - 20);
+      await surahsStore.getSurahSingle(
+        route.params.id,
+        `ar.alafasy, ${query.value.join()}`,
+        +route.query.page * 20 - 20
+      );
     }
   } else {
     if (props.transliteration) {
-      ayahStore.getAyah(props.surahAndAyah, `ar.alafasy, en.transliteration, ${query.value.join()}`)
+      await ayahStore.getAyah(
+        props.surahAndAyah,
+        `ar.alafasy, en.transliteration, ${query.value.join()}`
+      );
     } else {
-      ayahStore.getAyah(props.surahAndAyah, `ar.alafasy, ${query.value.join()}`)
+      await ayahStore.getAyah(
+        props.surahAndAyah,
+        `ar.alafasy, ${query.value.join()}`
+      );
     }
   }
 });
-
 </script>
 
 <template>

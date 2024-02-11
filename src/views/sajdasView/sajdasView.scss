@@ -1,0 +1,10 @@
+.sajdas {
+    &__content {
+        margin-top: 30px;
+
+        &-cards {
+            display: grid;
+            gap: 24px;
+        }
+    }
+}

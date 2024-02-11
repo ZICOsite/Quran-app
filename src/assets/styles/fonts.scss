@@ -2,7 +2,7 @@ $DM_sans: ("Bold", 700, "normal"),("Medium", 500, "normal"),("MediumItalic", 500
 
 @each $name, $weight, $style in $DM_sans {
     @font-face {
-        src: url(../fonts/DM_Sans/DMSans-#{$name}.woff2) format('woff2');
+        src: url(@/assets/fonts/DM_Sans/DMSans-#{$name}.woff2);
         font-family: "DM_sans";
         font-weight: $weight;
         font-style: $style;
@@ -14,7 +14,7 @@ $Arabic: ("Bold", 700), ("Medium", 500),("Regular", 400),("SemiBold", 600);
 
 @each $name, $weight, $style in $Arabic {
     @font-face {
-        src: url(../fonts/Noto_Naskh_Arabic/NotoNaskhArabic-#{$name}.woff2) format('woff2');
+        src: url(@/assets/fonts/Noto_Naskh_Arabic/NotoNaskhArabic-#{$name}.woff2);
         font-family: "Noto Naskh Arabic";
         font-weight: $weight;
         font-style: swap;
