@@ -15,10 +15,13 @@ const isPlay = ref(true);
   <div class="surah-desc" v-for="item in ayahsList" :key="item.text">
     <div class="surah-desc__top" :title="edition?.englishName">
       <h3 class="surah-desc__surah-name" v-if="item.surah">
-        <RouterLink :to="`/ayahs/${item.number}`" class="surah-desc__surah-link">
+        <RouterLink
+          :to="`/ayahs/${item.number}`"
+          class="surah-desc__surah-link"
+        >
           {{ item.surah?.englishName }}
           <span>({{ item.surah?.englishNameTranslation }})</span>
-          <span>{{ item.surah?.name }}</span>
+          <span class="text-arabic">{{ item.surah?.name }}</span>
         </RouterLink>
       </h3>
       <span class="surah-desc__number">
@@ -40,6 +43,7 @@ const isPlay = ref(true);
       <strong v-else class="surah-desc__name">{{
         edition?.englishName
       }}</strong>
+      <span class="surah-desc__info">{{ item.sajda?.recommended ? "Recommended" : "Obligatory" }}</span>
     </div>
     <div class="surah-desc__content">
       <p

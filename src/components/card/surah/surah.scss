@@ -47,6 +47,7 @@
     gap: 30px;
     padding: 10px;
     border-radius: var(--radius-4);
+    flex-wrap: wrap;
   }
 
   &__surah-link {
@@ -55,6 +56,11 @@
     display: flex;
     gap: 8px;
     align-items: center;
+    flex-wrap: wrap;
+
+    .text-arabic {
+      margin-left: auto;
+    }
 
     span {
       font-weight: 400;
@@ -90,5 +96,10 @@
     &.text-arabic {
       font-size: 30px;
     }
+  }
+
+  &__info {
+    color: #fff;
+    font-weight: 700;
   }
 }
