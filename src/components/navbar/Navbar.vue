@@ -1,5 +1,11 @@
 <script setup>
+import { RouterLink } from "vue-router";
 import { Search } from "@element-plus/icons-vue";
+import { useSearchStore } from "@/stores/getSearchStore";
+import { useRouter } from "vue-router";
+
+const searchStore = useSearchStore();
+const router = useRouter()
 
 const search = ref("");
 
@@ -24,6 +30,12 @@ const pages = [
   },
 ];
 
+const getResultsSearch = (keyword) => {
+  searchStore.getSearch(keyword);
+  console.log(keyword);
+  router.push("/search")
+};
+
 </script>
 
 <template>
@@ -41,13 +53,18 @@ const pages = [
             </RouterLink>
           </li>
         </ul>
-        <form action="" class="nav__menu-form">
+        <form
+          action=""
+          class="nav__menu-form"
+          @submit.prevent="getResultsSearch(search)"
+        >
           <el-input
             class="nav__menu-input"
             placeholder="Search the Quran"
             :prefix-icon="Search"
             v-model="search"
             clearable
+            required
           />
         </form>
       </div>

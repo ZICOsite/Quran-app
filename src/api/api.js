@@ -24,7 +24,11 @@ const apiQuran = {
   getSajdas() {
     const url = `sajda/ar.alafasy`;
     return axiosClient.get(url);
-  }
+  },
+  getSearch(keyword) {
+    const url = `search/${keyword}/all/en`;
+    return axiosClient.get(url);
+  },
 };
 
 export default apiQuran;
