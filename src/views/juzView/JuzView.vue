@@ -15,11 +15,23 @@ juzStore.getJuz(route.params.id);
       <Bismillah />
       <div class="juz__content">
         <div class="juz__content-cards">
-          <Surah
-            v-for="item in juzStore.juz?.surahs"
-            :key="item.number"
-            :surah="item"
-          />
+          <el-skeleton :loading="!juzStore.juz?.surahs" animated>
+            <template #template>
+              <el-skeleton-item
+                v-for="item in juzStore.juz?.surahs"
+                :key="item"
+                variant="p"
+                style="height: 100px"
+              />
+            </template>
+            <template #default>
+              <Surah
+                v-for="item in juzStore.juz?.surahs"
+                :key="item.number"
+                :surah="item"
+              />
+            </template>
+          </el-skeleton>
         </div>
       </div>
     </div>

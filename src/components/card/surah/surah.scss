@@ -53,6 +53,10 @@
     padding: 10px;
     border-radius: var(--radius-4);
     flex-wrap: wrap;
+
+    &:not([title='Alafasy']) .surah-desc__name {
+      margin-left: auto;
+    }
   }
 
   &__surah-link {

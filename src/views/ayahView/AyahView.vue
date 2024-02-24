@@ -38,12 +38,24 @@ const queryAyah = (surahAndAyah) => {
           </p>
         </div>
         <div class="ayah__content-cards">
-          <Ayah
-            class="ayah__content-text"
-            v-for="item in ayahStore.ayahs"
-            :key="item.edition.identifier"
-            :info="item"
-          />
+          <el-skeleton :loading="!ayahStore.ayahs" animated>
+            <template #template>
+              <el-skeleton-item
+                v-for="item in 2"
+                :key="item"
+                variant="p"
+                style="height: 100px"
+              />
+            </template>
+            <template #default>
+              <Ayah
+                class="ayah__content-text"
+                v-for="item in ayahStore.ayahs"
+                :key="item.edition.identifier"
+                :info="item"
+              />
+            </template>
+          </el-skeleton>
         </div>
         <form
           action=""

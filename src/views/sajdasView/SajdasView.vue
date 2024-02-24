@@ -13,10 +13,22 @@ sajdasStore.getSajdas();
       <Bismillah />
       <div class="sajdas__content">
         <div class="sajdas__content-cards">
-          <SurahDesc
-            :ayahsList="sajdasStore.sajdas?.ayahs"
-            :edition="sajdasStore.sajdas?.edition"
-          />
+          <el-skeleton :loading="!sajdasStore.sajdas?.ayahs" animated>
+            <template #template>
+              <el-skeleton-item
+                v-for="item in 2"
+                :key="item"
+                variant="p"
+                style="height: 200px"
+              />
+            </template>
+            <template #default>
+              <SurahDesc
+                :ayahsList="sajdasStore.sajdas?.ayahs"
+                :edition="sajdasStore.sajdas?.edition"
+              />
+            </template>
+          </el-skeleton>
         </div>
       </div>
     </div>

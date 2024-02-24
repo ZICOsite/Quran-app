@@ -13,24 +13,36 @@ const ayahStore = useAyahStore();
   <section class="intro">
     <div class="container">
       <h1 class="title">Holy Qur'an</h1>
-      <Bismillah/>
+      <Bismillah />
       <h2 class="intro__title text-arabic">
-        ٱلْحَمْدُ لِلّٰهِ ٱلَّذِي خَلَقَ ٱلْإِنْسَانَ وَٱلْجَانَّ وَ ٱلسَّمٰوَاتِ وَ ٱلْأَرْضَ وَ مَا فِيهُمَا وَ مَا بَيْنَهُمَا وَ هُوَ ذُوْ ٱلْجَلَالِ وَ ٱلْإِكْرَامِ وَ هُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ
+        ٱلْحَمْدُ لِلّٰهِ ٱلَّذِي خَلَقَ ٱلْإِنْسَانَ وَٱلْجَانَّ وَ
+        ٱلسَّمٰوَاتِ وَ ٱلْأَرْضَ وَ مَا فِيهُمَا وَ مَا بَيْنَهُمَا وَ هُوَ
+        ذُوْ ٱلْجَلَالِ وَ ٱلْإِكْرَامِ وَ هُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ
       </h2>
       <p class="intro__subtitle">
         All praise is for Allah Who created man and jinn and the heavens and the
         earth and what is in them and what is between them and He is the Lord of
         Majesty and Bounty and He has power over everything.
       </p>
-      <Ayah
-        class="intro__ayah"
-        v-for="item in ayahStore.ayahs"
-        :key="item.edition.identifier"
-        :info="item"
-        :numberAyah="randomAyahs"
-      />
+      <el-skeleton :loading="!ayahStore.ayahs" animated>
+        <template #template>
+          <el-skeleton-item
+            variant="p"
+            style="height: 200px"
+          />
+        </template>
+        <template #default>
+          <Ayah
+            class="intro__ayah"
+            v-for="item in ayahStore.ayahs"
+            :key="item.edition.identifier"
+            :info="item"
+            :numberAyah="randomAyahs"
+          />
+        </template>
+      </el-skeleton>
       <Suspense>
-        <Select :surahAndAyah="randomAyahs" :transliteration="false"  />
+        <Select :surahAndAyah="randomAyahs" :transliteration="false" />
         <template #fallback>
           <h1>Loading</h1>
         </template>
