@@ -31,6 +31,16 @@ body {
     color: var(--secondary-color);
 }
 
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+}
+
+main {
+    flex-grow: 1;
+}
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s ease;
@@ -59,4 +69,19 @@ body {
 
 audio::-webkit-media-controls-panel {
     background: #fff;
+}
+
+.empty {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+
+    &__title {
+        font-size: clamp(20px, 5vw, 36px);
+        text-wrap: balance;
+    }
+    text-align: center;
 }

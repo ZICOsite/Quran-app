@@ -5,7 +5,7 @@ import { useSearchStore } from "@/stores/getSearchStore";
 import { useRouter } from "vue-router";
 
 const searchStore = useSearchStore();
-const router = useRouter()
+const router = useRouter();
 
 const search = ref("");
 
@@ -32,10 +32,9 @@ const pages = [
 
 const getResultsSearch = (keyword) => {
   searchStore.getSearch(keyword);
-  console.log(keyword);
-  router.push("/search")
+  router.push("/search");
+  menu.value = false;
 };
-
 </script>
 
 <template>
@@ -52,6 +51,7 @@ const getResultsSearch = (keyword) => {
               {{ item.name }}
             </RouterLink>
           </li>
+          <RouterLink to="/error">test</RouterLink>
         </ul>
         <form
           action=""
@@ -68,7 +68,7 @@ const getResultsSearch = (keyword) => {
           />
         </form>
       </div>
-      <RouterLink to="/" class="nav__logo text-arabic"
+      <RouterLink to="/" @click="menu = false" class="nav__logo text-arabic"
         >الْقُرْآن الْكَرِيْم</RouterLink
       >
       <div class="nav__burger" @click="menu = !menu">
