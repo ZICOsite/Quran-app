@@ -8,11 +8,12 @@ const props = defineProps({
   edition: Object,
 });
 
-const isPlay = ref(true);
+const curAudio = ref(null);
+
 </script>
 
 <template>
-  <div class="surah-desc" v-for="item in ayahsList" :key="item.text">
+  <div class="surah-desc" v-for="(item, index) in ayahsList" :key="item.text">
     <div class="surah-desc__top" :title="edition?.englishName">
       <h3 class="surah-desc__surah-name" v-if="item.surah">
         <RouterLink
@@ -29,13 +30,13 @@ const isPlay = ref(true);
       </span>
       <button
         class="surah-desc__play"
-        v-if="isPlay && item.audio"
-        @click="isPlay = false"
+        v-if="item.audio && curAudio !== index"
+        @click="curAudio = index"
       >
         <el-icon :size="24" color="#fff"><VideoPlay /></el-icon>
       </button>
       <audio
-        v-if="item.audio && !isPlay"
+        v-if="item.audio && curAudio == index"
         :src="item.audio"
         class="surah-desc__audio"
         controls

@@ -32,6 +32,11 @@ const handleCurrentChange = (page) => {
     page * 20 - 20
   );
 };
+
+if (route.query.page > Math.ceil(surahsStore.totalAyah / 20)) {
+  router.push("/error");
+}
+
 </script>
 
 <template>

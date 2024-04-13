@@ -1,5 +1,9 @@
 <script setup>
 import Bismillah from "@/components/Bismillah/Bismillah.vue";
+import { useSurahsStore } from "@/stores/getSurahsStore";
+
+const surahsStore = useSurahsStore();
+surahsStore.getSurahs();
 </script>
 
 <template>

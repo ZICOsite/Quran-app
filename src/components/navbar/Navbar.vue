@@ -51,7 +51,6 @@ const getResultsSearch = (keyword) => {
               {{ item.name }}
             </RouterLink>
           </li>
-          <RouterLink to="/error">test</RouterLink>
         </ul>
         <form
           action=""
